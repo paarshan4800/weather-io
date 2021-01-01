@@ -81,3 +81,36 @@
     margin-top: 15px !important;
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .feels_like {
+    margin-left: 0px;
+  }
+
+  .locationAndAstro,
+  .astro {
+    text-align: center !important;
+  }
+
+}
+
+@media only screen and (max-width: 386px) {
+  .property {
+    font-size: 15px !important;
+  }
+
+  .propertyValue {
+    font-size: 16px !important;
+  }
+
+}
+
+
+.feels_like {
+  margin-left: 5px;
+}
+
+.astro {
+  text-align: left;
+}

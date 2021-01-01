@@ -1,14 +1,14 @@
 <div *ngIf="report" class="container">
   <!-- weather report -->
   <div class="row justify-content-center weatherCard">
-    <div class="col-md-4 py-5 px-4">
+    <div class="col-md-4 px-4">
       <h2 class="location">{{locationDetails.name}}, {{locationDetails.country}}</h2>
       <p class="time">{{locationDetails.localtime | date:'medium'}}</p>
       <h3 class="temperature"><span *ngIf="!isFahrenheit">{{report.temp_c}}&deg;</span><span
           *ngIf="isFahrenheit">{{report.temp_f}}&deg;</span></h3>
       <p class="rainChance">{{report.day.daily_chance_of_rain}}% chance of rain</p>
     </div>
-    <div class="col-md-3 py-5 px-4 text-center align-self-stretch">
+    <div class="col-md-3 px-4 text-center conditionDiv align-self-center">
       <img src="{{report.condition.icon}}" alt="">
       <p class="weatherDescription mt-2">{{report.condition.text}}</p>
       <p class="sliderText mt-4">C&deg;&nbsp;<mat-slide-toggle [(ngModel)]="isFahrenheit"></mat-slide-toggle>

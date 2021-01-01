@@ -1,11 +1,11 @@
-<div class="row justify-content-center mb-3">
+<div class="row justify-content-center mb-3 locationAndAstro">
   <div class="col-md-6 align-self-center">
     <h1 class="location mb-4">Weather today in {{locationDetails.name}}, {{locationDetails.country}}</h1>
     <h3 class="temperature"><span *ngIf="!isFahrenheit">{{report.feelslike_c}}&deg;</span><span
         *ngIf="isFahrenheit">{{report.feelslike_f}}&deg;</span><br></h3>
-    <p class="ml-1">Feels Like</p>
+    <p class="feels_like">Feels Like</p>
   </div>
-  <div class="col-md-2 align-self-center text-left astro">
+  <div class="col-md-2 align-self-center astro">
     <p class="sunTime" matTooltip="Sunrise" matTooltipPosition="left"><img src="assets/sunrise.svg" alt="" width="30px"
         height="30px" class="mr-2">{{report.astro.sunrise}}</p>
     <p class="sunTime" matTooltip="Sunset" matTooltipPosition="left"><img src="assets/sunset.svg" alt="" width="30px"
