@@ -21,19 +21,6 @@ export class ApiService {
     return this._http.get<any>(this.baseURL + this.API_KEY + "&q=" + location + "&days=7").pipe(catchError(this.errorHandler));
   }
 
-  // Conversions
-  kelvinToCelcius(kelvin: number) {
-    return Math.round(kelvin - 273.15);
-  }
-
-  kelvinToFahrenheit(kelvin: number) {
-    return Math.round(1.8 * (kelvin - 273) + 32);
-  }
-
-  getCountryFlag(countryCode: string) {
-    return "https://www.countryflags.io/" + countryCode.toLowerCase() + "/flat/64.png";
-  }
-
   errorHandler(error: HttpErrorResponse) {
     return throwError(error || error.error['msg'] || 'SERVER ERROR');
   }

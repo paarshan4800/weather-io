@@ -118,6 +118,10 @@
               "devServerTarget": "ctf-front-end:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
