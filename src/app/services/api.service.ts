@@ -11,7 +11,7 @@ export class ApiService {
 
   // Weather
   API_KEY: string = "03a192d4414544278ed104648210101";
-  baseURL: string = "http://api.weatherapi.com/v1/forecast.json?key=";
+  baseURL: string = "https://api.weatherapi.com/v1/forecast.json?key=";
 
   constructor(private _http: HttpClient) { }
 
