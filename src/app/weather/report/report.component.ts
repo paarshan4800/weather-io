@@ -9,9 +9,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class ReportComponent implements OnInit {
 
   @Input() report: any;
-  @Input() fullReport: any;
   @Input() hourly: Array<Object>;
   @Input() daily: Array<Object>;
+  @Input() locationDetails;
   isCelcius: boolean;
   isFahrenheit: boolean = true;
   isHourly = true;

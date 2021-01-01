@@ -9,6 +9,7 @@ export class TodayComponent implements OnInit {
 
   @Input() report;
   @Input() isFahrenheit;
+  @Input() locationDetails;
   isCelcius: boolean;
   
   constructor() { }

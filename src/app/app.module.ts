@@ -6,6 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { HourlyComponent } from './weather/report/hourly/hourly.component';
 import { DailyComponent } from './weather/report/daily/daily.component';
 import { DailyAndHourlyCardComponent } from './weather/report/daily-and-hourly-card/daily-and-hourly-card.component';
 import { WeatherIoComponent } from './weather-io/weather-io.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { WeatherIoComponent } from './weather-io/weather-io.component';
     HourlyComponent,
     DailyComponent,
     DailyAndHourlyCardComponent,
-    WeatherIoComponent
+    WeatherIoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { WeatherIoComponent } from './weather-io/weather-io.component';
     MatTabsModule,
     MatExpansionModule,
     MatSlideToggleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

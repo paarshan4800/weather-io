@@ -1,7 +1,9 @@
 <div class="row justify-content-center">
   <div class="col-md-10">
-    <h1 class="location mb-4">Next 7 <span *ngIf="isHourly">hours</span><span *ngIf="!isHourly">days</span> in
-      {{report.name}}, {{report.sys.country}}</h1>
+    <h1 *ngIf="isHourly" class="location mb-4">24 hour weather forecast of {{locationDetails.name}},
+      {{locationDetails.country}}</h1>
+    <h1 *ngIf="!isHourly" class="location mb-4">Next 3 days weather forecast of {{locationDetails.name}},
+      {{locationDetails.country}}</h1>
   </div>
 </div>
 <div class="row justify-content-center">
@@ -9,57 +11,102 @@
     <mat-accordion>
       <mat-expansion-panel *ngFor="let val of value">
         <mat-expansion-panel-header [collapsedHeight]="customCollapsedHeight" [expandedHeight]="customExpandedHeight">
+          <!-- Panel -->
           <mat-panel-description class="d-flex justify-content-center">
+            <!-- Time/Date -->
             <div class="col-md-2 align-self-center">
-              <p *ngIf="isHourly">{{val.dt | date:'shortTime'}}</p>
-              <p *ngIf="!isHourly">{{val.dt | date:'EEE dd'}}</p>
+              <p *ngIf="isHourly">{{val.time | date:'shortTime'}}</p>
+              <p *ngIf="!isHourly">{{val.date | date:'EEE dd'}}</p>
             </div>
+
+            <!-- Temperature -->
             <div class="col-md-2 align-self-center">
-              <p *ngIf="!isFahrenheit && isHourly">{{val.celcius.current}}&deg;</p>
-              <p *ngIf="isFahrenheit && isHourly">{{val.fahrenheit.current}}&deg;</p>
-              <p *ngIf="!isFahrenheit && !isHourly">{{val.celcius.day}}&deg;/{{val.celcius.night}}&deg;</p>
-              <p *ngIf="isFahrenheit && !isHourly">{{val.fahrenheit.day}}&deg;/{{val.fahrenheit.night}}&deg;</p>
+              <p *ngIf="!isFahrenheit && isHourly">{{val.temp_c}}&deg;</p>
+              <p *ngIf="isFahrenheit && isHourly">{{val.temp_f}}&deg;</p>
+              <p *ngIf="!isFahrenheit && !isHourly" matTooltip="Average Temp" matTooltipPosition="above">
+                {{val.day.avgtemp_c}}
+              </p>
+              <p *ngIf="isFahrenheit && !isHourly" matTooltip="Average Temp" matTooltipPosition="above">
+                {{val.day.avgtemp_f}}
+              </p>
             </div>
+
+            <!-- Condition -->
             <div class="col-md-3 align-self-center">
-              <p><img src="{{val.conditionImg}}" alt="" width="50px" height="50px">{{val.weather[0].main}}</p>
+              <p *ngIf="isHourly">
+                <img src="{{val.condition.icon}}" alt="" width="50px" height="50px">&nbsp;{{val.condition.text}}</p>
+              <p *ngIf="!isHourly">
+                <img src="{{val.day.condition.icon}}" alt="" width="50px" height="50px">&nbsp;{{val.day.condition.text}}
+              </p>
             </div>
+
+            <!-- Wind -->
             <div class="col-md-2 align-self-center">
-              <p><img src="assets/wind.svg" alt="" width="20px" height="20px">&nbsp;{{val.wind_speed}} km/hr</p>
+              <p *ngIf="isHourly"><img src="assets/wind.svg" alt="" width="20px" height="20px">&nbsp;{{val.wind_kph}}
+                km/hr</p>
+              <p *ngIf="!isHourly"><img src="assets/wind.svg" alt="" width="20px"
+                  height="20px">&nbsp;{{val.day.maxwind_kph}}
+                km/hr</p>
             </div>
+
+            <!-- Rain Chance -->
+            <!-- <div class="col-md-2 align-self-center">
+              <p *ngIf="isHourly"><img src="assets/rainy.svg" alt="" width="20px"
+                  height="20px">&nbsp;{{val.chance_of_rain}}%</p>
+              <p *ngIf="!isHourly"><img src="assets/rainy.svg" alt="" width="20px"
+                  height="20px">&nbsp;{{val.day.daily_chance_of_rain}}%</p>
+            </div> -->
+
           </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <!-- Exapnsion -->
         <div class="row d-flex justify-content-center text-center">
           <div class="col-md-3 col-sm-3 propertyContainer">
+            <!-- Feels-like -->
             <img src="assets/thermometer.svg" alt="" height="20px" width="20px">&nbsp;
-            <p style="display:inline;" class="property">Feels like<br>
-              <span class="pl-3" *ngIf="!isFahrenheit && isHourly"
-                class="propertyValue">{{val.celcius.feels_like}}&deg;</span>
-              <span class="pl-3" *ngIf="isFahrenheit && isHourly"
-                class="propertyValue">{{val.fahrenheit.feels_like}}&deg;</span>
-              <span class="pl-3" *ngIf="!isFahrenheit && !isHourly"
-                class="propertyValue">{{val.celcius.feels_like_day}}&deg;/{{val.celcius.feels_like_night}}&deg;</span>
-              <span class="pl-3" *ngIf="isFahrenheit && !isHourly"
-                class="propertyValue">{{val.fahrenheit.feels_like_day}}&deg;/{{val.fahrenheit.feels_like_night}}&deg;</span>
+            <p *ngIf="isHourly" style="display:inline;" class="property">Feels like<br>
+              <span class="pl-3" *ngIf="!isFahrenheit" class="propertyValue">{{val.feelslike_c}}&deg;</span>
+              <span class="pl-3" *ngIf="isFahrenheit" class="propertyValue">{{val.feelslike_f}}&deg;</span>
             </p>
-
+            <p *ngIf="!isHourly" style="display:inline;" class="property">Max/Min<br>
+              <span class="pl-3" *ngIf="!isFahrenheit"
+                class="propertyValue">{{val.day.maxtemp_c}}&deg;/{{val.day.mintemp_c}}&deg;</span>
+              <span class="pl-3" *ngIf="isFahrenheit"
+                class="propertyValue">{{val.day.maxtemp_f}}&deg;/{{val.day.mintemp_f}}&deg;</span>
+            </p>
           </div>
+
+          <!-- Humidity -->
           <div class="col-md-3 col-sm-3 propertyContainer">
             <img src="assets/humidity.svg" alt="" height="20px" width="20px">&nbsp;
             <p style="display:inline;" class="property">Humidity<br>
-              <span class="pl-3" class="propertyValue">{{val.humidity}}%</span>
+              <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.humidity}}%</span>
+              <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.avghumidity}}%</span>
             </p>
-
           </div>
-          <div *ngIf="isHourly" class="col-md-3 col-sm-3 propertyContainer">
+
+          <!-- Visibility -->
+          <!-- <div class="col-md-3 col-sm-3 propertyContainer">
             <img src="assets/visibility.svg" alt="" height="20px" width="20px">&nbsp;
             <p style="display:inline;" class="property">Visibility<br>
-              <span class="pl-3" class="propertyValue">{{val.visibility}} km</span>
+              <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.vis_km}} km</span>
+              <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.avgvis_km}} km</span>
             </p>
-          </div>
-          <div *ngIf="!isHourly" class="col-md-3 col-sm-3 propertyContainer">
+          </div> -->
+          <!-- <div *ngIf="!isHourly" class="col-md-3 col-sm-3 propertyContainer">
             <img src="assets/cloud.svg" alt="" height="20px" width="20px">&nbsp;
             <p style="display:inline;" class="property">Clouds<br>
               <span class="pl-3" class="propertyValue">{{val.clouds}}%</span>
+            </p>
+          </div> -->
+
+          <!-- Rain Chance -->
+          <div class="col-md-3 col-sm-3 propertyContainer">
+            <img src="assets/rainy.svg" alt="" height="20px" width="20px">&nbsp;
+            <p style="display:inline;" class="property">Chance of Rain<br>
+              <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.chance_of_rain}}%</span>
+              <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.daily_chance_of_rain}}%</span>
             </p>
           </div>
         </div>

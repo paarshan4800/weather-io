@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
     path: "weather", component: WeatherComponent
   },
   { path: "contact", component: ContactComponent },
+  { path: "**", component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ export class HourlyComponent implements OnInit {
   @Input() report;
   @Input() hourly: Array<Object>;
   @Input() isFahrenheit;
+  @Input() locationDetails;
   isHourly: boolean = true;
 
   customCollapsedHeight: string = "*";

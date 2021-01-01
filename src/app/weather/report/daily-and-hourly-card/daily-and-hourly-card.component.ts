@@ -9,6 +9,7 @@ export class DailyAndHourlyCardComponent implements OnInit {
   @Input() report;
   @Input() value: Array<Object>;
   @Input() isFahrenheit;
+  @Input() locationDetails;
   @Input() isHourly;
 
   constructor() { }

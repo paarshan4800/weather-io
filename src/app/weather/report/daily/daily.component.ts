@@ -9,6 +9,7 @@ export class DailyComponent implements OnInit {
   @Input() report;
   @Input() daily: Array<Object>;
   @Input() isFahrenheit;
+  @Input() locationDetails;
   isHourly: boolean = false;
   constructor() { }
 
