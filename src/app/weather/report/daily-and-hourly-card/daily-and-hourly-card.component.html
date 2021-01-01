@@ -14,13 +14,13 @@
           <!-- Panel -->
           <mat-panel-description class="d-flex justify-content-center">
             <!-- Time/Date -->
-            <div class="col-md-2 align-self-center">
+            <div class="col-sm-2 align-self-center">
               <p *ngIf="isHourly">{{val.time | date:'shortTime'}}</p>
               <p *ngIf="!isHourly">{{val.date | date:'EEE dd'}}</p>
             </div>
 
             <!-- Temperature -->
-            <div class="col-md-2 align-self-center">
+            <div class="col-sm-2 align-self-center">
               <p *ngIf="!isFahrenheit && isHourly">{{val.temp_c}}&deg;</p>
               <p *ngIf="isFahrenheit && isHourly">{{val.temp_f}}&deg;</p>
               <p *ngIf="!isFahrenheit && !isHourly" matTooltip="Average Temp" matTooltipPosition="above">
@@ -32,16 +32,18 @@
             </div>
 
             <!-- Condition -->
-            <div class="col-md-4 align-self-center">
+            <div class="col-sm-4 align-self-center" *ngIf="!isXsMobile">
               <p *ngIf="isHourly">
-                <img src="{{val.condition.icon}}" alt="" width="50px" height="50px">&nbsp;{{val.condition.text}}</p>
+                <img src="{{val.condition.icon}}" alt="" [class.mobileImg]="isMobile"><span
+                  *ngIf="!isMobile">&nbsp;{{val.condition.text}}</span></p>
               <p *ngIf="!isHourly">
-                <img src="{{val.day.condition.icon}}" alt="" width="50px" height="50px">&nbsp;{{val.day.condition.text}}
+                <img src="{{val.day.condition.icon}}" alt="" [class.mobileImg]="isMobile"><span
+                  *ngIf="!isMobile">&nbsp;{{val.day.condition.text}}</span>
               </p>
             </div>
 
             <!-- Wind -->
-            <div class="col-md-2 align-self-center">
+            <div *ngIf="!isMobile" class="col-sm-2 align-self-center">
               <p *ngIf="isHourly"><img src="assets/wind.svg" alt="" width="20px" height="20px">&nbsp;{{val.wind_kph}}
                 km/hr</p>
               <p *ngIf="!isHourly"><img src="assets/wind.svg" alt="" width="20px"
@@ -62,7 +64,7 @@
 
         <!-- Exapnsion -->
         <div class="row d-flex justify-content-center text-center">
-          <div class="col-md-3 col-sm-3 propertyContainer">
+          <div class="col-md-2 col-sm-3 propertyContainer">
             <!-- Feels-like -->
             <img src="assets/thermometer.svg" alt="" height="20px" width="20px">&nbsp;
             <p *ngIf="isHourly" style="display:inline;" class="property">Feels like<br>
@@ -77,8 +79,17 @@
             </p>
           </div>
 
+          <!-- Condition -->
+          <div *ngIf="isMobile" class="col-md-2 col-sm-3 propertyContainer">
+            <img src="assets/condition.svg" alt="" height="20px" width="20px">&nbsp;
+            <p style="display:inline;" class="property">Condition<br>
+              <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.condition.text}}</span>
+              <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.condition.text}}</span>
+            </p>
+          </div>
+
           <!-- Humidity -->
-          <div class="col-md-3 col-sm-3 propertyContainer">
+          <div class="col-md-2 col-sm-3 propertyContainer">
             <img src="assets/humidity.svg" alt="" height="20px" width="20px">&nbsp;
             <p style="display:inline;" class="property">Humidity<br>
               <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.humidity}}%</span>
@@ -102,11 +113,20 @@
           </div> -->
 
           <!-- Rain Chance -->
-          <div class="col-md-3 col-sm-3 propertyContainer">
+          <div class="col-md-2 col-sm-3 propertyContainer">
             <img src="assets/rainy.svg" alt="" height="20px" width="20px">&nbsp;
             <p style="display:inline;" class="property">Chance of Rain<br>
               <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.chance_of_rain}}%</span>
               <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.daily_chance_of_rain}}%</span>
+            </p>
+          </div>
+
+          <!-- Wind -->
+          <div *ngIf="isMobile" class="col-md-2 col-sm-3 propertyContainer">
+            <img src="assets/wind.svg" alt="" height="20px" width="20px">&nbsp;
+            <p style="display:inline;" class="property">Wind<br>
+              <span *ngIf="isHourly" class="pl-3" class="propertyValue">{{val.wind_kph}}%</span>
+              <span *ngIf="!isHourly" class="pl-3" class="propertyValue">{{val.day.maxwind_kph}}%</span>
             </p>
           </div>
         </div>

@@ -52,3 +52,9 @@ a .footerIcon:hover {
 .container-fluid {
   background-color: rgb(34, 34, 34);
 }
+
+/* @media only screen and (max-width: 768px) {
+  .linkbacks {
+    margin-top: 15px;
+  }
+} */

@@ -45,3 +45,13 @@
 .row {
   font-family: Font-Regular !important;
 }
+
+.mobileImg {
+  width: 25px;
+  height: 25px;
+}
+
+.normalImg {
+  width: 50px;
+  height: 50px;
+}
