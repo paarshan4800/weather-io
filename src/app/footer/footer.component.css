@@ -1,0 +1,54 @@
+.appName {
+  font-family: AppName;
+  color: grey;
+  font-size: 30px;
+  animation: nameColorChange;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes nameColorChange {
+  0% {
+    color: grey;
+  }
+
+
+  50% {
+    color: orange;
+  }
+
+
+  100% {
+    color: grey;
+  }
+}
+
+
+.footerLink {
+  color: rgb(180, 180, 180);
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footerLink:hover {
+  color: orange;
+}
+
+hr {
+  width: 60%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+a .footerIcon {
+  text-decoration: none;
+  color: white !important;
+}
+
+a .footerIcon:hover {
+  color: orange !important;
+}
+
+.container-fluid {
+  background-color: rgb(34, 34, 34);
+}

@@ -1,0 +1,43 @@
+.appName {
+  font-family: AppName;
+  font-size: 75px;
+  color: grey;
+  animation: nameColorChange;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes nameColorChange {
+  0% {
+    color: grey;
+  }
+
+
+  50% {
+    color: orange;
+  }
+
+
+  100% {
+    color: grey;
+  }
+}
+
+
+.description {
+  color: white;
+  font-size: 16px;
+}
+.seasonImg {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+
+@media only screen and (max-width: 576px) {
+  .seasonImg {
+    width: 75%;
+    margin-bottom: 40px;
+  }
+}

@@ -1,0 +1,13 @@
+a .footerIcon {
+  text-decoration: none;
+  color: white !important;
+}
+
+a .footerIcon:hover {
+  color: orange !important;
+}
+
+.description {
+    font-size: 18px;
+    color: white;
+}

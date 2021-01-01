@@ -1,0 +1,47 @@
+::ng-deep mat-expansion-panel-header {
+  height: auto !important;
+}
+
+::ng-deep mat-panel-description,
+::ng-deep mat-panel-header {
+  flex-basis: 0 !important;
+}
+
+::ng-deep mat-panel-description {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* ::ng-deep mat-panel-description,
+  ::ng-deep mat-panel-header {
+    display: flex;
+    justify-content: space-evenly !important;
+  } */
+
+.test {
+  display: flex;
+  justify-content: space-around !important;
+}
+
+::ng-deep mat-expansion-panel {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 576px) {
+  .propertyContainer {
+    margin-bottom: 15px !important;
+  }
+}
+
+.property {
+  font-size: 13px !important;
+}
+
+.propertyValue {
+  font-size: 15px !important;
+}
+
+.row {
+  font-family: Font-Regular !important;
+}

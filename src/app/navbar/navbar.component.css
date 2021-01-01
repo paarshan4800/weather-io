@@ -1,0 +1,39 @@
+nav {
+  background-color: rgb(34, 34, 34);
+}
+
+
+.nav-link {
+  color: rgb(180, 180, 180) !important;
+  font-size: 17px;
+}
+
+.router-link-active,
+.nav-link:hover {
+  color: orange !important;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-family: AppName;
+  color: grey;
+  animation: nameColorChange;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes nameColorChange {
+  0% {
+    color: grey;
+  }
+
+
+  50% {
+    color: orange;
+  }
+
+
+  100% {
+    color: grey;
+  }
+}

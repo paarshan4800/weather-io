@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ctf-front-end"
+    }
+  },
+  "defaultProject": "ctf-front-end",
+  "cli": {
+    "analytics": "c148b285-fc28-4638-b4c6-6c13564c1a5b"
+  }
 }

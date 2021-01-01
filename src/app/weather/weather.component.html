@@ -1,0 +1,18 @@
+<app-weather-io></app-weather-io>
+<div class="container" style="margin-top: 50px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <form [formGroup]="form">
+        <mat-form-field appearance='legacy' floatLabel='always'>
+          <mat-label>Enter Location</mat-label>
+          <input matInput placeholder="Enter Location" type="text" name="location" formControlName="location"
+            (keyup)="searchLocation()" autocomplete="off">
+        </mat-form-field>
+        <br>
+        <small class="text-danger" *ngIf="(form.touched && !form.value.location) || cityNotFound">Provide valid
+          location</small>
+      </form>
+    </div>
+  </div>
+</div>
+<app-report [report]="currentReport" [fullReport]="oneCallReport" [hourly]="hourly" [daily]="daily"></app-report>

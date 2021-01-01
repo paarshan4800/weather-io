@@ -1,0 +1,29 @@
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: orange !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: orange !important;
+  ;
+}
+
+input {
+  color: white;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+hr {
+  background-color: orange !important;
+}
+
+mat-label {
+  color: orange;
+  font-size: 20px;
+}
+
+button {
+    background-color: orange;
+}

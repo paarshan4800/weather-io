@@ -1,0 +1,47 @@
+<div class="row justify-content-center mb-3">
+  <div class="col-md-6">
+    <h1 class="location mb-4">Weather today in {{report.name}}, {{report.sys.country}}</h1>
+    <h3 class="temperature"><span *ngIf="!isFahrenheit">{{report.celcius.feels_like}}&deg;</span><span
+        *ngIf="isFahrenheit">{{report.fahrenheit.feels_like}}&deg;</span><br></h3>
+    <p class="ml-3">Feels Like</p>
+
+
+  </div>
+  <div class="col-md-2 align-self-center text-left">
+    <p class="sunTime"><img src="assets/sunrise.svg" alt="" width="30px" height="30px"
+        class="mr-2">{{report.sys.sunrise | date:'shortTime'}}</p>
+    <p class="sunTime"><img src="assets/sunset.svg" alt="" width="30px" height="30px"
+        class="mr-2">{{report.sys.sunset | date:'shortTime'}}
+    </p>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4 px-4">
+    <!-- Temperature -->
+    <p class="propertyContainer"><img src="assets/thermometer.svg" alt="" width="30px" height="30px"><span
+        class="property">&emsp;High/Low</span>
+      <span *ngIf="isCelcius" class="propertyValue">{{report.celcius.high}}&deg;/{{report.celcius.low}}&deg;</span><span
+        *ngIf="!isCelcius" class="propertyValue">{{report.fahrenheit.high}}&deg;/{{report.fahrenheit.low}}&deg;</span>
+    </p>
+
+    <!-- Wind -->
+    <p class="propertyContainer"><img src="assets/wind.svg" alt="" width="30px" height="30px"><span
+        class="property">&emsp;Wind</span>
+      <span class="propertyValue">{{report.wind.speed}} km/hr</span></p>
+
+    <!-- Humidity -->
+    <p class="propertyContainer"><img src="assets/humidity.svg" alt="" width="30px" height="30px"> <span
+        class="property">&emsp;Humidity</span>
+      <span class="propertyValue">{{report.main.humidity}}%</span></p>
+  </div>
+  <div class="col-md-4 px-4">
+    <!-- Pressure -->
+    <p class="propertyContainer"><img src="assets/pressure.svg" alt="" width="30px" height="30px"> <span
+        class="property">&emsp;Pressure</span>
+      <span class="propertyValue">{{report.main.pressure}} hPa</span></p>
+    <!-- Visibility -->
+    <p class="propertyContainer"><img src="assets/visibility.svg" alt="" width="30px" height="30px"> <span
+        class="property">&emsp;Visibility</span>
+      <span class="propertyValue">{{report.visibility}} km </span></p>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div *ngIf="report" class="container">
+  <!-- weather report -->
+  <div class="row justify-content-center weatherCard">
+    <div class="col-md-4 py-5 px-4">
+      <h2 class="location">{{report.name}}, {{report.sys.country}} <img src="{{report.countryFlag}}" alt=""
+          class="countryFlag"></h2>
+      <p class="time">{{report.dt | date:'medium'}}</p>
+      <h3 class="temperature"><span *ngIf="!isFahrenheit">{{report.celcius.current}}&deg;</span><span
+          *ngIf="isFahrenheit">{{report.fahrenheit.current}}&deg;</span></h3>
+    </div>
+    <div class="col-md-3 py-5 px-4 text-center align-self-stretch">
+      <img src="{{report.conditionImg}}" alt="">
+      <p class="weatherDescription">{{report.weather[0].main}}</p>
+      <p class="sliderText">C&deg;&nbsp;<mat-slide-toggle [(ngModel)]="isFahrenheit"></mat-slide-toggle>&nbsp;F&deg;
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="report" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-tab-group mat-align-tabs="center" dynamicHeight>
+
+        <!-- Today -->
+        <mat-tab label="Today">
+          <app-today [report]="report" [isFahrenheit]="isFahrenheit"></app-today>
+        </mat-tab>
+
+        <!-- Next 7 Hours -->
+        <mat-tab label="Next 7 Hours">
+          <app-hourly [report]="report" [hourly]="hourly" [isFahrenheit]="isFahrenheit"></app-hourly>
+        </mat-tab>
+
+        <!-- Next 10 Days -->
+        <mat-tab label="Next 7 Days">
+          <app-daily [report]="report" [daily]="daily" [isFahrenheit]="isFahrenheit"></app-daily>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.appName {
+  font-family: AppName;
+  font-size: 75px;
+  color: grey;
+  animation: nameColorChange;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes nameColorChange {
+  0% {
+    color: grey;
+  }
+
+
+  50% {
+    color: orange;
+  }
+
+
+  100% {
+    color: grey;
+  }
+}
+
+
+.description {
+  color: white;
+  font-size: 16px;
+}
+
+.container {
+    margin-top: 100px !important;
+}

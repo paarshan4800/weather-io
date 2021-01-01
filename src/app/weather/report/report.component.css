@@ -1,0 +1,79 @@
+.location {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.countryFlag {
+  width: 50px;
+}
+
+.weatherDescription {
+  font-size: 25px;
+}
+
+.time {
+  font-size: 25px;
+  margin-bottom: 40px;
+  line-height: 30px;
+}
+
+.temperature {
+  font-size: 100px;
+}
+
+.container {
+  width: 90%;
+  margin-top: 50px;
+  font-family: Font-Regular !important;
+}
+
+.weatherCard {
+  background-color: orange;
+  box-shadow: 0 10px 20px rgba(83, 83, 83, 0.19), 0 6px 6px rgba(83, 83, 83, 0.19);
+  border-radius: 5px;
+}
+
+.unitToggle {
+  font-size: 30px !important;
+  cursor: pointer;
+}
+
+
+.unitToggle:hover {
+  color: black !important;
+}
+
+.badgeText {
+  padding: 15px !important;
+  font-size: 16px;
+}
+
+::ng-deep.mat-tab-label {
+  color: white !important;
+}
+
+::ng-deep.mat-tab-body-content {
+  background-color: #E6E6E6 !important;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 5px;
+}
+
+::ng-deep mat-ink-bar {
+  background-color: orange !important;
+}
+
+.sliderText {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+::ng-deep mat-slide-toggle-bar,
+::ng-deep.mat-slide-toggle-thumb {
+  background-color: black !important;
+}
+
+::ng-deep.mat-tab-label-content {
+  font-size: 17px !important;
+}

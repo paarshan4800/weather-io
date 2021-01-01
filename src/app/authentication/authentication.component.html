@@ -1,0 +1,21 @@
+<app-weather-io></app-weather-io>
+<div class="container" style="margin-top: 50px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <form [formGroup]="form">
+        <mat-form-field appearance='legacy' floatLabel='always'>
+          <mat-label>Enter Email</mat-label>
+          <input matInput placeholder="Enter Email" type="text" name="email" formControlName="email" autocomplete="off">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance='legacy' floatLabel='always'>
+          <mat-label>Enter Password</mat-label>
+          <input matInput placeholder="Enter Password" type="password" name="password" formControlName="password"
+            autocomplete="off">
+        </mat-form-field>
+        <br>
+        <button type="button" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

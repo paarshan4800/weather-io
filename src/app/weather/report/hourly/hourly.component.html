@@ -1,0 +1,56 @@
+<!-- <div class="row justify-content-center">
+  <div class="col-md-12">
+    <h1 class="location mb-4">Next 7 hours in {{report.name}}, {{report.sys.country}}</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let hour of hourly">
+        <mat-expansion-panel-header [collapsedHeight]="customCollapsedHeight" [expandedHeight]="customExpandedHeight">
+          <mat-panel-description class="d-flex justify-content-center">
+            <div class="col-md-2">
+              <p>{{hour.dt | date:'shortTime'}}</p>
+            </div>
+            <div class="col-md-2">
+              <p *ngIf="!isFahrenheit">{{hour.celcius.current}}</p>
+              <p *ngIf="isFahrenheit">{{hour.fahrenheit.current}}</p>
+            </div>
+            <div class="col-md-2">
+              <p><img src="{{hour.conditionImg}}" alt="" width="30px" height="30px">{{hour.weather[0].main}}</p>
+            </div>
+            <div class="col-md-2">
+              <p><img src="assets/wind.svg" alt="" width="20px" height="20px">{{hour.wind_speed}} km/hr</p>
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-md-3 col-sm-3 propertyContainer">
+            <img src="assets/thermometer.svg" alt="" height="20px" width="20px">
+            <p style="display:inline;">Feels like<br>
+              <span class="pl-3" *ngIf="!isFahrenheit">{{hour.celcius.feels_like}}&deg;</span>
+              <span class="pl-3" *ngIf="isFahrenheit">{{hour.fahrenheit.feels_like}}&deg;</span>
+            </p>
+
+          </div>
+          <div class="col-md-3 col-sm-3 propertyContainer">
+            <img src="assets/humidity.svg" alt="" height="20px" width="20px">
+            <p style="display:inline;">Humidity<br>
+              <span class="pl-3">{{hour.humidity}}%</span>
+            </p>
+
+          </div>
+          <div class="col-md-3 col-sm-3 propertyContainer">
+            <img src="assets/visibility.svg" alt="" height="20px" width="20px">
+            <p style="display:inline;">Visibility<br>
+              <span class="pl-3">{{hour.visibility}} km</span>
+            </p>
+
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div> -->
+<app-daily-and-hourly-card [report]="report" [value]="hourly" [isFahrenheit]="isFahrenheit" [isHourly]="isHourly">
+</app-daily-and-hourly-card>

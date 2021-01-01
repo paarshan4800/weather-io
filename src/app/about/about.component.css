@@ -1,0 +1,17 @@
+.description {
+  letter-spacing: 2px;
+}
+
+.description2,
+.description {
+  color: white;
+  font-size: 18px;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    color: orange !important;
+}
