@@ -4,19 +4,16 @@ Weather.io is a reesponsive Weather Report Web Application developed using Angul
 
 **Hosted Link** - https://paarshan4800.github.io/weather-io
 
-<br/>
 
 ## Setup
 - Download and Install [Node.js](https://nodejs.org/en/)
 - Install Angular CLI by running ```npm install -g @angular/cli```
 
-<br/>
 
 ## Launching the application
 - Run ```npm install``` to install the required dependencies.
 - Run ```ng serve``` to start the Angular Server.
 
-<br/>
 
 ## Screenshots
 
